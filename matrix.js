@@ -22,7 +22,7 @@ class Matrix {
     }
 
     static map(A, f){
-        let aux = new Matrix(A.rows, B.rows)
+        let aux = new Matrix(A.rows, B.cols)
         aux.data = aux.data.map((arr, i) => {
             return arr.map((num, j) => {
                 return f(num, i , j);
@@ -46,6 +46,14 @@ class Matrix {
         var aux = new Matrix(A.rows, B.cols)
         aux.map((el, i, j) => {
             return A.data[i][j] + B.data[i][j]
+        })
+        return aux
+    }
+
+    static hadamard(A, B) {
+        var aux = new Matrix(A.rows, B.cols)
+        aux.map((el, i, j) => {
+            return A.data[i][j] * B.data[i][j]
         })
         return aux
     }
