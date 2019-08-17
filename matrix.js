@@ -42,8 +42,21 @@ class Matrix {
         return this
     }
 
+    // static operators Matrix-Scalar
+
+    static scalarMultiply(A, scalar) {
+        var aux = new Matrix(A.rows, A.cols)
+        aux.map((el, i, j) => {
+            return A.data[i][j] * scalar
+        })
+        return aux
+    }
+
+
+    // static operators Matrix-Matrix
+
     static add(A, B) {
-        var aux = new Matrix(A.rows, B.cols)
+        var aux = new Matrix(A.rows, A.cols)
         aux.map((el, i, j) => {
             return A.data[i][j] + B.data[i][j]
         })
@@ -51,7 +64,7 @@ class Matrix {
     }
 
     static hadamard(A, B) {
-        var aux = new Matrix(A.rows, B.cols)
+        var aux = new Matrix(A.rows, A.cols)
         aux.map((el, i, j) => {
             return A.data[i][j] * B.data[i][j]
         })
