@@ -47,7 +47,7 @@ class Matrix {
         aux.map((num, i, j) => {
             return A.data[j][i]
         })
-        
+
         return aux
     }
 
@@ -68,6 +68,14 @@ class Matrix {
         var aux = new Matrix(A.rows, A.cols)
         aux.map((el, i, j) => {
             return A.data[i][j] + B.data[i][j]
+        })
+        return aux
+    }
+
+    static subtract(A, B) {
+        var aux = new Matrix(A.rows, A.cols)
+        aux.map((el, i, j) => {
+            return A.data[i][j] - B.data[i][j]
         })
         return aux
     }
