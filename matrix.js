@@ -42,6 +42,15 @@ class Matrix {
         return this
     }
 
+    static transpose(A) {
+        var aux = new Matrix(A.cols, A.rows)
+        aux.map((num, i, j) => {
+            return A.data[j][i]
+        })
+        
+        return aux
+    }
+
     // static operators Matrix-Scalar
 
     static scalarMultiply(A, scalar) {
