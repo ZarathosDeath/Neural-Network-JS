@@ -21,22 +21,28 @@ class Matrix {
        return matrix
     }
 
-    static map(A, f){
-        let aux = new Matrix(A.rows, B.cols)
-        aux.data = aux.data.map((arr, i) => {
+    static matrixToArray(obj) {
+        let arr = []
+        obj.map((el, i, j) => {
+            arr.push(el)
+        })
+        return arr
+     }
+
+    static map(A, func){
+        let aux = new Matrix(A.rows, A.cols)
+        aux.data = A.data.map((arr, i) => {
             return arr.map((num, j) => {
-                return f(num, i , j);
-                
+                return func(num, i , j);
             })
         })
         return aux
     }
 
-    map(f){
+    map(func){
         this.data = this.data.map((arr, i) => {
             return arr.map((num, j) => {
-                return f(num, i , j);
-                
+                return func(num, i , j);
             })
         })
         return this
@@ -88,7 +94,7 @@ class Matrix {
         return aux
     }
 
-    static multiply(A, B) {        
+    static multiply(A, B) {     
         let aux = new Matrix(A.rows, B.cols)
 
         aux.map((num, i, j) => {
@@ -107,6 +113,7 @@ class Matrix {
     randomize() {
         this.map((el, i, j) => {
             return Math.random() * 2 - 1
+            // return Math.floor(Math.random() * 10)
         })
     }
 
